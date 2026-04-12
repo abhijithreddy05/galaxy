@@ -62,9 +62,9 @@ class PinRepositoryImpl implements PinRepository {
       final height = 200 + (index % 3) * 100;
       return PinEntity(
         id: index,
-        imageUrl: 'https://picsum.photos/seed/\${query ?? 'curated'}\$index/300/\$height',
-        detailUrl: 'https://picsum.photos/seed/\${query ?? 'curated'}\$index/600/\${height * 2}',
-        title: query != null ? 'Mock \$query Pin \$index' : 'Mock Curated Pin \$index',
+        imageUrl: "https://picsum.photos/seed/\${query ?? 'curated'}$index/300/$height",
+        detailUrl: "https://picsum.photos/seed/\${query ?? 'curated'}$index/600/${height * 2}",
+        title: query != null ? 'Mock $query Pin $index' : 'Mock Curated Pin $index',
         author: 'Mock Photographer',
         avgColor: '#BBBBBB',
         width: 300,

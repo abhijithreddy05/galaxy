@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:pinterest_clone/presentation/home/providers/home_provider.dart';
 import 'package:pinterest_clone/presentation/home/widgets/pin_grid_item.dart';
+import 'package:pinterest_clone/presentation/search/screens/search_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -85,8 +86,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildBody() {
-    if (_currentIndex != 0) {
-      return Center(child: Text('Under Construction'));
+    if (_currentIndex == 1) {
+      return const SearchScreen();
+    } else if (_currentIndex != 0) {
+      return const Center(child: Text('Under Construction'));
     }
 
     final pinsState = ref.watch(homePinsProvider);
