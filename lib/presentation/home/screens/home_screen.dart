@@ -86,19 +86,26 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildBody() {
-    if (_currentIndex == 1) {
-      return const SearchScreen();
-    } else if (_currentIndex != 0) {
-      return const Center(child: Text('Under Construction'));
-    }
+    return IndexedStack(
+      index: _currentIndex,
+      children: [
+        _buildHomeGrid(),
+        const SearchScreen(),
+        const Center(child: Text('Under Construction')),
+        const Center(child: Text('Under Construction')),
+        const Center(child: Text('Under Construction')),
+      ],
+    );
+  }
 
+  Widget _buildHomeGrid() {
     final pinsState = ref.watch(homePinsProvider);
-
     return RefreshIndicator(
       onRefresh: () => ref.read(homePinsProvider.notifier).refresh(),
       child: pinsState.when(
         data: (pins) {
           return MasonryGridView.count(
+            key: const PageStorageKey('home_grid'), // Added to preserve scroll memory natively
             controller: _scrollController,
             crossAxisCount: 2,
             mainAxisSpacing: 8,
