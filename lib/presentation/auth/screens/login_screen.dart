@@ -44,20 +44,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   elevation: 0,
                 ),
-                child: const Text('Continue (Guest)', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-              ),
-              const SizedBox(height: 16),
-              OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  side: const BorderSide(color: Colors.grey),
-                ),
-                child: const Text('Log in with Clerk (Unavailable without Key)',
-                    style: TextStyle(fontSize: 16, color: Colors.black)),
+                child: const Text('Continue', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
               const Spacer(),
               const Text(
