@@ -26,8 +26,8 @@ jobs:
       - name: Generate .env file
         run: |
           mkdir -p assets
-          echo "PEXELS_API_KEY=\${{ secrets.PEXELS_API_KEY }}" > assets/.env
-          echo "CLERK_PUBLISHABLE_KEY=dummy" >> assets/.env
+          touch assets/.env
+          echo "PEXELS_API_KEY=mocked" > assets/.env
 
       - name: Install dependencies
         run: flutter pub get
