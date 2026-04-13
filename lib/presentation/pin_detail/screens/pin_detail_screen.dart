@@ -6,8 +6,9 @@ import 'package:pinterest_clone/domain/entities/pin_entity.dart';
 
 class PinDetailScreen extends StatelessWidget {
   final PinEntity pin;
+  final String heroTag;
 
-  const PinDetailScreen({Key? key, required this.pin}) : super(key: key);
+  const PinDetailScreen({Key? key, required this.pin, required this.heroTag}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class PinDetailScreen extends StatelessWidget {
             },
             child: Center(
               child: Hero(
-                tag: 'pin_image_\${pin.id}',
+                tag: heroTag,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(32),
                   child: CachedNetworkImage(

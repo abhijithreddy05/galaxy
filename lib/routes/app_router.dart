@@ -18,8 +18,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/pin',
       builder: (context, state) {
-        final pin = state.extra as PinEntity;
-        return PinDetailScreen(pin: pin);
+        final args = state.extra as Map<String, dynamic>;
+        final pin = args['pin'] as PinEntity;
+        final heroTag = args['heroTag'] as String;
+        return PinDetailScreen(pin: pin, heroTag: heroTag);
       },
     ),
   ],

@@ -97,7 +97,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                 );
               }
               final pin = pins[index];
-              return PinGridItem(pin: pin);
+              return PinGridItem(pin: pin, heroTagPrefix: 'search_');
             },
           );
         },

@@ -6,20 +6,22 @@ import 'package:shimmer/shimmer.dart';
 
 class PinGridItem extends StatelessWidget {
   final PinEntity pin;
+  final String heroTagPrefix;
 
-  const PinGridItem({Key? key, required this.pin}) : super(key: key);
+  const PinGridItem({Key? key, required this.pin, this.heroTagPrefix = 'home_'}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final String heroTag = '\${heroTagPrefix}pin_image_\${pin.id}';
     return GestureDetector(
       onTap: () {
-        context.push('/pin', extra: pin);
+        context.push('/pin', extra: {'pin': pin, 'heroTag': heroTag});
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Hero(
-            tag: 'pin_image_\${pin.id}',
+            tag: heroTag,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: CachedNetworkImage(
